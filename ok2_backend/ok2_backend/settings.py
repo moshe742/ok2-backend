@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'parliament_tools',
     'one_minute_speeches',
-    'takanon'
+    'takanon',
+    'common',
 ]
 
 MIDDLEWARE = [
