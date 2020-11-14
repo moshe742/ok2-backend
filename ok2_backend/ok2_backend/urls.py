@@ -1,5 +1,4 @@
 """ok2_backend URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -15,10 +14,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include, path
+
+from one_minute_speeches.views import one_minute_speeches
+from accounts.views import login, registration_view
 
 from one_minute_speeches.views import Tool
 
-urlpatterns = [
+api_patterns = [
     path('admin/', admin.site.urls),
     path('tool/', Tool.as_view()),
+    path('admin', admin.site.urls),
+    path('login', login),
+    path('register', registration_view),
+    path('one_minute_speeches', one_minute_speeches),
 ]
+
+urlpatterns = [path('api/', include(api_patterns))]

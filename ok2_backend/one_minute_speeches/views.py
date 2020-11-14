@@ -9,7 +9,3 @@ class Tool(View):
         return JsonResponse({
             'key': 'val'
         })
-
-
-def func(request):
-    return 'hello'
